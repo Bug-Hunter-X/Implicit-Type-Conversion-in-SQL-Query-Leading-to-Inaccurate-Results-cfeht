@@ -1,0 +1,3 @@
+SELECT * FROM employees WHERE department_id = '10' AND salary > 100000; -- This query might return unexpected results if there are any department IDs stored as strings instead of integers.  MySQL's loose type checking could lead to implicit type conversion, potentially producing inaccurate results or even errors depending on the data.
+
+The issue is exacerbated if the `department_id` column is not indexed.  The database will have to perform a full table scan instead of using an index, leading to slow query performance, especially with a large number of rows.
